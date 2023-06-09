@@ -1,8 +1,8 @@
 import { useQuery } from '@tanstack/react-query'
 import React, { useEffect, useState } from 'react'
-import { useForm } from 'react-hook-form'
 const handleIsOpen = (isOpen, setIsOpen) => setIsOpen(!isOpen)
 const SingleDrop = ({
+  fieldName = "",
   queryKey = "",
   queryFn,
   queryFnPayload = {},
@@ -16,11 +16,6 @@ const SingleDrop = ({
   onChange = () => { }
 }) => {
   const [isOpen, setIsOpen] = useState(false)
-  const { register } = useForm({
-    defaultValues: {
-      search: ""
-    }
-  })
   const { data } = useQuery({
     queryKey: [queryKey],
     queryFn: () => queryFn({ page: 1, length: 10, ...queryFnPayload, }),
@@ -37,6 +32,7 @@ const SingleDrop = ({
       body.removeEventListener('click', () => handleIsOpen(isOpen, setIsOpen))
     }
   }, [isOpen])
+
   if (isApiPresent) {
     return (
       <>
@@ -71,8 +67,8 @@ const SingleDrop = ({
                 {rawDataForDropdown.map((result, index) => {
                   const listValue = result[select]
                   const listLabel = result[label]
-                  return <li value={listValue} key={index} onClick={(e)=>{
-                      
+                  return <li {...controllerField} key={index} onClick={() => {
+                    onChange(listValue)
                   }}>{listLabel}</li>
                 })}
               </>
@@ -81,23 +77,6 @@ const SingleDrop = ({
         }
       </div>
     )
-    // return (
-    //   <>
-    //     <select name={queryKey} {...controllerField} onChange={(e) => onChange(e.target.value)}>
-    // {rawDataForDropdown.length === 0 ? <option>Data is not provided</option> :
-    //   <>
-    //     <option value={""}>{placeHolder}</option>
-    //     {rawDataForDropdown.map((result, index) => {
-    //       const listValue = result[select]
-    //       const listLabel = result[label]
-    //       return <option value={listValue} key={index}>{listLabel}</option>
-    //     })}
-    //   </>
-    //       }
-    //     </select>
-    //     {error && <span>{error}</span>}
-    //   </>
-    // )
   }
 }
 

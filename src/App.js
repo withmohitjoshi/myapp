@@ -57,8 +57,9 @@ function App() {
             control={control}
             render={({ field }) => {
               return <SingleDrop
+                fieldName="username"
                 label='name'
-                select='names'
+                select='name'
                 isApiPresent={false}
                 rawDataForDropdown={[
                   { name: "mohit", id: 1 },
@@ -74,7 +75,7 @@ function App() {
             }}
           />
 
-          {/* <button type='submit'>Submit</button> */}
+          <button type='submit'>Submit</button>
         </form>
       </header>
     </div>
