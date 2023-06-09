@@ -36,3 +36,20 @@
     transform: rotate(360deg);
   }
 }
+form{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  flex-direction: column;
+}
+select{
+  padding: 0.6rem 1rem;
+  width: 20rem;
+  border-radius: 0.2rem;
+  background-color: whitesmoke;
+}
+button[type=submit]{
+  width: 15rem;
+  padding: 0.5rem 1rem;
+}
