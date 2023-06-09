@@ -31,7 +31,7 @@ function App() {
         <form onSubmit={handleSubmit((data) => {
           console.log(data);
         })}>
-          <Controller
+          {/* <Controller
             name='listName'
             control={control}
             render={({ field }) => {
@@ -51,7 +51,7 @@ function App() {
                 }}
               />
             }}
-          />
+          /> */}
           <Controller
             name='username'
             control={control}
@@ -74,7 +74,7 @@ function App() {
             }}
           />
 
-          <button type='submit'>Submit</button>
+          {/* <button type='submit'>Submit</button> */}
         </form>
       </header>
     </div>

@@ -44,22 +44,47 @@ const SingleDrop = ({
     )
   } else {
     return (
-      <>
-        <select name={queryKey} {...controllerField} onChange={(e) => onChange(e.target.value)}>
-          {rawDataForDropdown.length === 0 ? <option>Data is not provided</option> :
-            <>
-              <option value={""}>{placeHolder}</option>
-              {rawDataForDropdown.map((result, index) => {
-                const listValue = result[select]
-                const listLabel = result[label]
-                return <option value={listValue} key={index}>{listLabel}</option>
-              })}
-            </>
-          }
-        </select>
-        {error && <span>{error}</span>}
-      </>
+      <div className='dropdown-main'>
+        <div className='dropdown' onClick={() => setIsOpen(!isOpen)}>
+          <p className='dropdown-placeholder'>{placeHolder}</p>
+        </div>
+        
+        {isOpen &&
+          <ul className='dropdown-menu'>
+            <div className='dropdown-menu-search'>
+        <input type='search'/>
+        </div>
+            {rawDataForDropdown.length === 0 ? <li>Data is not provided</li> :
+              <>
+                <li value={""}>{placeHolder}</li>
+                {rawDataForDropdown.map((result, index) => {
+                  const listValue = result[select]
+                  const listLabel = result[label]
+                  return <li value={listValue} key={index}>{listLabel}</li>
+                })}
+              </>
+            }
+          </ul>
+        }
+      </div>
     )
+    // return (
+    //   <>
+    //     <select name={queryKey} {...controllerField} onChange={(e) => onChange(e.target.value)}>
+    // {rawDataForDropdown.length === 0 ? <option>Data is not provided</option> :
+    //   <>
+    //     <option value={""}>{placeHolder}</option>
+    //     {rawDataForDropdown.map((result, index) => {
+    //       const listValue = result[select]
+    //       const listLabel = result[label]
+    //       return <option value={listValue} key={index}>{listLabel}</option>
+    //     })}
+    //   </>
+    //       }
+    //     </select>
+    //     {error && <span>{error}</span>}
+    //   </>
+    // )
   }
 }
 

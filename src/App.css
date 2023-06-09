@@ -1,55 +1,69 @@
-.App {
-  text-align: center;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
+body {
+  background-color: gray;
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-form{
+form {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 2rem;
   flex-direction: column;
 }
-select{
+select {
   padding: 0.6rem 1rem;
   width: 20rem;
   border-radius: 0.2rem;
   background-color: whitesmoke;
 }
-button[type=submit]{
+button[type="submit"] {
   width: 15rem;
   padding: 0.5rem 1rem;
+}
+.dropdown-main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0.3rem;
+  width: 20rem;
+}
+.dropdown {
+  background-color: white;
+  color: black;
+  cursor: pointer;
+  gap: 0.2rem;
+  border-radius: 0.2rem;
+  width: 100%;
+}
+.dropdown-placeholder {
+  padding: 0.6rem 1rem;
+}
+.dropdown-menu {
+  text-align: start;
+  border-radius: 0.2rem;
+  background-color: white;
+  list-style-type: none;
+  padding: 0.6rem 1rem;
+  width: 100%;
+}
+.dropdown-menu-search {
+  width: 100%;
+}
+.dropdown-menu-search input{
+  width: 100%;
+  outline: none;
+  padding: 0.6rem 1rem;
+}
+.dropdown-menu li{
+  padding: 0.4rem 0;
+}
+.dropdown-menu li:hover{
+  cursor: pointer;
+  background-color: rgb(189, 189, 189);
 }
