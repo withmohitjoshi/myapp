@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
+const handleIsOpen = (isOpen, setIsOpen) => setIsOpen(!isOpen)
 const SingleDrop = ({
   queryKey = "",
   queryFn,
@@ -27,6 +28,15 @@ const SingleDrop = ({
     enabled: isApiPresent
   })
 
+  useEffect(() => {
+    const body = document.getElementsByTagName('body')[0]
+    if (isOpen) {
+      body.addEventListener('click', () => handleIsOpen(isOpen, setIsOpen))
+    }
+    return () => {
+      body.removeEventListener('click', () => handleIsOpen(isOpen, setIsOpen))
+    }
+  }, [isOpen])
   if (isApiPresent) {
     return (
       <>
@@ -44,23 +54,26 @@ const SingleDrop = ({
     )
   } else {
     return (
-      <div className='dropdown-main'>
-        <div className='dropdown' onClick={() => setIsOpen(!isOpen)}>
+      <div className='dropdown-main' onClick={(e) => {
+        e.stopPropagation()
+      }}>
+        <div className='dropdown' onClick={() => handleIsOpen(isOpen, setIsOpen)}>
           <p className='dropdown-placeholder'>{placeHolder}</p>
         </div>
-        
+
         {isOpen &&
           <ul className='dropdown-menu'>
             <div className='dropdown-menu-search'>
-        <input type='search'/>
-        </div>
+              <input type='search' />
+            </div>
             {rawDataForDropdown.length === 0 ? <li>Data is not provided</li> :
               <>
-                <li value={""}>{placeHolder}</li>
                 {rawDataForDropdown.map((result, index) => {
                   const listValue = result[select]
                   const listLabel = result[label]
-                  return <li value={listValue} key={index}>{listLabel}</li>
+                  return <li value={listValue} key={index} onClick={(e)=>{
+                      
+                  }}>{listLabel}</li>
                 })}
               </>
             }
