@@ -20,12 +20,52 @@ button[type="submit"] {
   width: 15rem;
   padding: 0.5rem 1rem;
 }
-.dropdown-main{
+.dropdown-main {
   width: 20rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 .dropdown-main > * {
   width: 100%;
 }
-.dropdown-menu{
+.dropdown-body {
+  background-color: white;
   padding: 0.6rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  max-height: 20rem;
+  overflow-y: scroll;
+}
+.dropdown-header {
+  background-color: rgb(255, 255, 255);
+  padding: 0.6rem 1rem;
+  border-radius: 0.2rem;
+}
+.dropdown-header input{
+  border: none;
+  outline: none;
+  border-radius: 0.2rem;
+  background-color: transparent;
+  width: 100%;
+}
+.dropdown-search input {
+  border: none;
+  outline: none;
+  width: 100%;
+  padding: 0.6rem 1rem;
+  background-color: rgb(222, 222, 222);
+  border-radius: 0.2rem;
+}
+.dropdown-menu {
+  list-style-type: none;
+}
+.dropdown-menu-items {
+  cursor: pointer;
+  padding: 0.4rem;
+}
+.dropdown-menu-items:hover {
+  background-color: rgb(222, 222, 222);
+  border-radius: 0.4rem;
 }
