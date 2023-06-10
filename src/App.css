@@ -15,55 +15,17 @@ form {
   justify-content: center;
   flex-direction: column;
 }
-select {
-  padding: 0.6rem 1rem;
-  width: 20rem;
-  border-radius: 0.2rem;
-  background-color: whitesmoke;
-}
+
 button[type="submit"] {
   width: 15rem;
   padding: 0.5rem 1rem;
 }
-.dropdown-main {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  gap: 0.3rem;
+.dropdown-main{
   width: 20rem;
 }
-.dropdown {
-  background-color: white;
-  color: black;
-  cursor: pointer;
-  gap: 0.2rem;
-  border-radius: 0.2rem;
+.dropdown-main > * {
   width: 100%;
 }
-.dropdown-placeholder {
+.dropdown-menu{
   padding: 0.6rem 1rem;
-}
-.dropdown-menu {
-  text-align: start;
-  border-radius: 0.2rem;
-  background-color: white;
-  list-style-type: none;
-  padding: 0.6rem 1rem;
-  width: 100%;
-}
-.dropdown-menu-search {
-  width: 100%;
-}
-.dropdown-menu-search input{
-  width: 100%;
-  outline: none;
-  padding: 0.6rem 1rem;
-}
-.dropdown-menu li{
-  padding: 0.4rem 0;
-}
-.dropdown-menu li:hover{
-  cursor: pointer;
-  background-color: rgb(189, 189, 189);
 }
